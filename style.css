@@ -31,20 +31,25 @@
 }
 
 .gradient {
-	background: #7f7fd5; /* fallback for old browsers */
-	background: -webkit-linear-gradient(
-		to right,
-		#7f7fd5,
-		#86a8e7,
-		#91eae4
-	); /* Chrome 10-25, Safari 5.1-6 */
+	background: hsla(197, 14%, 57%, 1);
+
 	background: linear-gradient(
-		to right,
-		#7f7fd5,
-		#86a8e7,
-		#91eae4
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF86C4", endColorstr="#FFD2A4", GradientType=1 );
-	background-repeat: no-repeat;
-	background-size: conver;
+		90deg,
+		hsla(197, 14%, 57%, 1) 0%,
+		hsla(192, 17%, 94%, 1) 100%
+	);
+
+	background: -moz-linear-gradient(
+		90deg,
+		hsla(197, 14%, 57%, 1) 0%,
+		hsla(192, 17%, 94%, 1) 100%
+	);
+
+	background: -webkit-linear-gradient(
+		90deg,
+		hsla(197, 14%, 57%, 1) 0%,
+		hsla(192, 17%, 94%, 1) 100%
+	);
+
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8399A2", endColorstr="#EEF2F3", GradientType=1 );
 }

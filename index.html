@@ -5,28 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>to-do List</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styling.css">
 </head>
 
-<body class="gradient">
+<body>
 
     <!-- Start of to-do List -->
     <div class="todoList">
 
-        <div class="container">
+        <!-- Form container-->
+        <form class="myForm">
+            <input type="text" id="list" name="list" placeholder="what are you going to do?">
+            <button class="submitBtn" type="submit">Submit</button>
+        </form>
 
-            <!-- Form -->
-            <form class="myForm">
-                <input type="text" id="list" name="list" placeholder="type something">
-                <button type="submit">Submit</button>
-            </form>
-
-            <!-- Items -->
-            <div class="listContainer"></div>
-
-        </div>
+        <!-- Items container-->
+        <div class="container"></div>
+        <!-- End of container -->
 
     </div>
 
