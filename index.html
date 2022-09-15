@@ -13,22 +13,38 @@
 
 <body>
 
-<header><p class="heading1">TODO</p></header>
+    <!-- header title -->
+    <header>
+        <p>TODO</p>
+    </header>
+
+    <!-- header banner -->
+    <div class="img-banner"></div>
 
     <!-- Start of to-do List -->
     <div class="todoList">
 
         <!-- Form container-->
         <form class="myForm">
-            <input type="text" id="list" name="list" placeholder="what are you going to do?">
-            <!-- <button class="submitBtn" type="submit">Submit</button> -->
-            <i class="fa-solid fa-angles-right"></i>
+            <!-- Button form -->
+            <button class="submitBtn" type="submit">
+                <div class="circle">
+                    <p>+</p>
+                </div>
+            </button>
+            <!-- Input form -->
+            <input type="text" id="list" name="list" placeholder="Create a new todo...">
         </form>
 
         <!-- Items container-->
         <div class="container"></div>
         <!-- End of container -->
-        <div class="info"></div>
+
+        <!-- Footer -->
+        <footer>
+            <p class="item">3 items</p>
+            <p class="clear">Clear items</p>
+        </footer>
 
     </div>
 

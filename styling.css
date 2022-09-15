@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
 
 /* Variables */
 :root {
-	--primary: rgb(36, 39, 61);
-	--secondary: rgba(255, 255, 255, 0.11);
-	--bg-color1: rgb(23, 23, 35);
-	--text-color1: rgba(164, 170, 216);
+	--primary: #24273d;
+	--bg-color: #171723;
+
+	--text-color: rgb(164, 170, 216);
+	--text-color10: rgb(164, 170, 216, 0.1);
+	--text-color20: rgb(164, 170, 216, 0.2);
+	--text-color30: rgb(164, 170, 216, 0.3);
+
+	--white: #fff;
 }
 
 /* Resets */
@@ -22,103 +26,149 @@ h3,
 input,
 .submitBtn,
 p {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 p {
-	font-size: 18px;
+	font-size: 14px;
+	font-weight: normal;
 }
-
-.heading1{
-	font-size: 64px;
-	font-weight: 100;
-}
-
 
 /* Base styles */
 body {
-	background-color: var(--bg-color1);
+	background-color: var(--bg-color);
 }
 
 header {
-	color: var(--text-color1);
+	margin: 25px;
 }
 
-p {
-	color: rgb(192, 192, 192);
+header p {
+	font-size: 20px;
+	font-weight: bold;
+	color: var(--white);
 }
 
-.myForm {
-	display: flex;
-	justify-content: center;
-}
-
-input {
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-	background-color: #ddd;
-	padding: 3px 10px;
-	color: rgb(0, 0, 0);
-	border: none;
-}
-
-input:focus {
-	outline: none;
-	background-color: #fff;
+.img-banner {
+	width: 100%;
+	height: 215px;
+	background-color: rgb(21, 0, 255);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -999;
+	background-image: url(./imgs/bloom-tratada-resize.png);
+	background-position: center center;
+	background-size: 130%;
+	background-repeat: no-repeat;
 }
 
 .submitBtn {
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-	background-color: #86a8e7;
-	padding: 5px 12px;
-	font-size: 16px;
-	cursor: pointer;
-	color: rgb(255, 255, 255);
 	border: none;
+	background-color: var(--primary);
+	border-radius: 50%;
+	cursor: pointer;
 }
 
-.fa-trash {
-	color: rgba(190, 25, 25, 0.9);
+.circle {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 1px solid var(--text-color30);
+	color: var(--text-color);
+	position: relative;
 }
 
-.fa-pen-to-square {
-	color: rgba(25, 190, 25, 0.9);
+.circle > p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 18px;
 }
 
-.red {
-	color: rgb(0, 255, 136);
+.myForm {
+	background-color: var(--primary);
+	height: 57px;
+	margin: 10px;
+	border-radius: 4px;
+	display: flex;
+	margin-top: 140px;
+
+	/* put in the media query -> */
+	max-width: 940px;
+}
+
+.myForm button {
+	margin: 15px;
+}
+
+.myForm input {
+	background-color: var(--primary);
+	color: var(--text-color);
+	width: 100%;
+	border: none;
+	border-radius: 4px;
+}
+
+.myForm input[type=text]:focus{
+	outline: none;
+}
+
+.myForm input::placeholder {
+	color: var(--text-color20);
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.container-item {
+	border-bottom: 2px solid var(--text-color10);
+	background-color: var(--primary);
+	color: var(--text-color);
+	align-items: center;
+	display: flex;
+	margin: 0 10px;
+	height: 57px;
+}
+
+.container-item .circle {
+	margin: 15px;
+}
+
+.container-item:nth-child(1) {
+	border-radius: 4px 4px 0 0;
+}
+
+.list-options{
+	
+}
+
+footer {
+	display: flex;
+	background-color: var(--primary);
+	color: var(--text-color);
+	margin: 0 10px;
+	justify-content: space-between;
+	padding: 15px;
+	border-radius: 0 0 4px 4px;
+}
+
+footer p {
+	font-size: 12px;
+}
+
+.clear{
+	cursor: pointer;
 }
 
 /* Mobile styles*/
 .todoList {
-	margin: 20px;
 }
 
 .myForm {
-	background-color: var(--primary);
-	border-radius: 3px;
-	margin: 60px 0;
 }
 
 .container {
-	background-color: var(--primary);
-	border-radius: 3px;
 }
-
-.container-item {
-	border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-}
-
-.container-item:last-child {
-	border-bottom: none;
-}
-/* Media queries */
-
-/* 1. */
-/* #8399A2 */
-/* #EEF2F3 */
-
-/* 2. */
-/* #534C5A */
-/* #2C1A3B */

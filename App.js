@@ -1,11 +1,13 @@
 // Selecting Elements
 const myForm = document.querySelector('.myForm');
 const listContainer = document.querySelector('.container');
+const clearItems = document.querySelector('.clear');
 
 // event listeners
 window.addEventListener('DOMContentLoaded', () => renderList());
 myForm.addEventListener('submit', (e) => handleSubmit(e));
-listContainer.addEventListener('click', (e) => removeFromLocalStorage(e));
+listContainer.addEventListener('click', (e) =>UPDATE_OR_REMOVE_fromLocalStorage(e));
+clearItems.addEventListener('click', () => clearAllItems());
 
 // render list
 const renderList = () => {
@@ -17,10 +19,12 @@ const renderList = () => {
 		list += `
 		<!-- Start of single item-->
 	    <div class="container-item" id="${items[i].id}">
-		<i class="fa-solid fa-circle-check"></i>
-	        <p>${items[i].value}</p>
-            <i class="fa-solid fa-pen-to-square"></i>
-	        <i class="fa-solid fa-trash"></i>
+		<div class="circle list-options">
+			<i class="fa-regular fa-circle-check"></i>
+			<i class="fa-solid fa-pen-to-square"></i>
+			<i class="fa-solid fa-trash"></i>
+		</div>
+	    <p>${items[i].value}</p>
 	    </div>
 		<!-- End of single item-->`;
 	}
@@ -47,13 +51,13 @@ const handleSubmit = (e) => {
 	if (value === '') {
 		alert('Defina um item!');
 	} else {
-		console.log('item foi alocado!');
 		addToLocalStorage(id, value);
+		console.log('item foi alocado!');
 	}
 
 	// Clear input field
-	const input = document.querySelector('#list')
-	input.value = ''
+	const input = document.querySelector('#list');
+	input.value = '';
 };
 
 // LOCAL STORAGE
@@ -62,13 +66,11 @@ const addToLocalStorage = (id, value) => {
 	let items = getLocalStorage();
 
 	items.push(listItems);
-	console.log(listItems);
-	console.log(items);
 	localStorage.setItem('list', JSON.stringify(items));
 	renderList();
 };
 
-const removeFromLocalStorage = (e) => {
+const UPDATE_OR_REMOVE_fromLocalStorage = (e) => {
 	// Get element id and class
 	const id = e.target.parentElement.id;
 	const target = e.target.classList;
@@ -101,4 +103,10 @@ const getLocalStorage = () => {
 	return localStorage.getItem('list')
 		? JSON.parse(localStorage.getItem('list'))
 		: [];
+};
+
+const clearAllItems = () => {
+	let items = [];
+	localStorage.setItem('list', JSON.stringify(items));
+	renderList();
 };
