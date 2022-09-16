@@ -77,6 +77,7 @@ header p {
 	border: 1px solid var(--text-color30);
 	color: var(--text-color);
 	position: relative;
+	background-color: #24273d00;
 }
 
 .circle > p {
@@ -111,7 +112,7 @@ header p {
 	border-radius: 4px;
 }
 
-.myForm input[type=text]:focus{
+.myForm input[type='text']:focus {
 	outline: none;
 }
 
@@ -131,6 +132,7 @@ header p {
 	display: flex;
 	margin: 0 10px;
 	height: 57px;
+	position: relative;
 }
 
 .container-item .circle {
@@ -141,8 +143,41 @@ header p {
 	border-radius: 4px 4px 0 0;
 }
 
-.list-options{
-	
+.list-options {
+	background-color: var(--bg-color);
+	position: absolute;
+	top: -65px;
+	left: -10px;
+	padding: 12px 23px 12px 23px;
+	border-radius: 8px;
+	display: none;
+	z-index: 2;
+}
+
+.list-options > * {
+	font-size: 30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.list-options-display-block{
+	display: flex
+}
+
+.fa-trash {
+	margin-right: 0;
+}
+
+.checkItem{
+	font-size: 30px;
+	position: absolute;
+	margin: 15px;
+	color: var(--primary);
+}
+
+.checkItemDisplay{
+	color: var(--text-color);
+	z-index: 1;
 }
 
 footer {
@@ -159,7 +194,7 @@ footer p {
 	font-size: 12px;
 }
 
-.clear{
+.clear {
 	cursor: pointer;
 }
 
