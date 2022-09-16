@@ -82,7 +82,7 @@ const removeFromLocalStorage = (id, value) => {
 }
 
 const updateFromLocalStorage = (id, value) => {
-	
+
 }
 
 const getLocalStorage = () => {
@@ -99,7 +99,7 @@ const handleCircle = (e) => {
 	if (target.contains('circle')) {
 		const id = e.target.childNodes[1].id;
 		const listOptions = document.getElementById(`${id}`).classList;
-		listOptions.add('list-options-display-block');
+		listOptions.toggle('list-options-display-block');
 	}
 
 	// Hide circle options
