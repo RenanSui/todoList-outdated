@@ -104,7 +104,6 @@ const removeFromLocalStorage = (id, list) => {
 };
 
 const updateFromLocalStorage = (id, value) => {
-
 	let items = getLocalStorage();
 
 	items = items.map((item) => {
@@ -154,7 +153,6 @@ const handleCircle = (e) => {
 		const id = e.target.nextElementSibling.childNodes[1].id;
 		const checkItem = document.getElementById(`${id}`).parentElement
 			.previousElementSibling;
-		console.log(checkItem);
 		checkItem.classList.remove('checkItemDisplay');
 	}
 };
@@ -227,7 +225,6 @@ const handleAlert = (alertText, alertClass) => {
 	// show alert box
 	alertBox.classList.add('alertBoxDisplay');
 	alertBox.classList.add(alertClass);
-	console.log(alertClass);
 	alertBox.innerText = alertText;
 
 	// hide alert box
