@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>T O D O</title>
 
     <!-- Styles -->
@@ -26,8 +26,13 @@
     <!-- Start of to-do List -->
     <div class="todoList">
 
-            <!-- header title -->
-        <p class="todoTitle">TODO</p>
+
+        <!-- Alert for type errors -->
+        <div class="alertBox"></div>
+
+        <!-- header title -->
+        <p class="todoTitle">T O D O</p>
+
 
         <!-- Form container-->
         <form class="myForm">
@@ -41,6 +46,18 @@
             <input type="text" id="list" name="list" placeholder="Create a new todo...">
         </form>
 
+        <!-- Edit Form container-->
+        <form class="myFormEdit">
+            <!-- Button form -->
+            <button class="submitBtnEdit" type="submit">
+                <div class="circleEdit">
+                    <p>?</p>
+                </div>
+            </button>
+            <!-- Input form -->
+            <input type="text" id="listEdit" name="listEdit" placeholder="Edit your todo...">
+        </form>
+
         <!-- Items container-->
         <div class="container"></div>
         <!-- End of container -->
@@ -50,7 +67,6 @@
             <p class="itemsFooter">3 items</p>
             <p class="clear">Clear items</p>
         </footer>
-
     </div>
 
 

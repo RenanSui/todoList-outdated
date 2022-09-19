@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
 
 /* Variables */
 :root {
 	--primary: #24273d;
+	--secondary: #3d143e;
 	--bg-color: #171723;
 
 	--text-color: rgb(164, 170, 216);
@@ -43,6 +44,10 @@ header {
 	margin: 25px;
 }
 
+.todoList{
+	position: relative;
+}
+
 .todoTitle {
 	font-size: 20px;
 	font-weight: bold;
@@ -65,14 +70,16 @@ header {
 	background-repeat: no-repeat;
 }
 
-.submitBtn {
+.submitBtn,
+.submitBtnEdit {
 	border: none;
 	background-color: var(--primary);
 	border-radius: 50%;
 	cursor: pointer;
 }
 
-.circle {
+.circle,
+.circleEdit {
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
@@ -82,7 +89,8 @@ header {
 	background-color: #24273d00;
 }
 
-.circle > p {
+.circle > p,
+.circleEdit > p {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -90,20 +98,23 @@ header {
 	font-size: 18px;
 }
 
-.myForm {
+.myForm,
+.myFormEdit {
 	background-color: var(--primary);
 	height: 57px;
-	margin: 10px;
+	margin: 10px 10px 30px 10px;
 	border-radius: 8px;
 	display: flex;
 	margin-top: 140px;
 }
 
-.myForm button {
+.myForm button,
+.myFormEdit button {
 	margin: 15px;
 }
 
-.myForm input {
+.myForm input,
+.myFormEdit input {
 	background-color: var(--primary);
 	color: var(--text-color);
 	width: 100%;
@@ -111,11 +122,13 @@ header {
 	border-radius: 8px;
 }
 
-.myForm input[type='text']:focus {
+.myForm input[type='text']:focus,
+.myFormEdit input[type='text']:focus {
 	outline: none;
 }
 
-.myForm input::placeholder {
+.myForm input::placeholder,
+.myFormEdit input::placeholder {
 	color: var(--text-color20);
 }
 
@@ -136,6 +149,7 @@ header {
 
 .container-item .circle {
 	margin: 15px;
+	cursor: pointer;
 }
 
 .container-item:nth-child(1) {
@@ -151,6 +165,7 @@ header {
 	border-radius: 8px;
 	display: none;
 	z-index: 2;
+	cursor: default;
 }
 
 .list-options > * {
@@ -197,6 +212,42 @@ footer p {
 	cursor: pointer;
 }
 
+.alertBox {
+	padding: 10px 60px;
+	border-radius: 8px;
+	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 24px;
+	
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.alertBoxDisplay {
+	display: block;
+}
+
+.alertDanger {
+	background-color: rgba(255, 120, 120, 0.709);
+	color: rgb(236, 236, 236);
+}
+
+.alertEdited{
+	background-color: rgba(120, 230, 255, 0.709);
+	color: rgb(236, 236, 236);
+}
+
+.alertAdded{
+	background-color: rgba(120, 255, 120, 0.709);
+	color: rgb(236, 236, 236);
+}
+
+.alertWarning{
+	background-color: rgba(255, 239, 120, 0.709);
+}
+
 /* Small Tablet styles*/
 @media screen and (min-width: 740px) {
 	.img-banner {
@@ -213,26 +264,28 @@ footer p {
 
 	.todoTitle {
 		font-size: 60px;
-		font-weight: bold;
-		color: var(--white);
+		font-weight: 500;
 		margin-left: 42px;
 	}
 
-	.todoList{
+	.todoList {
 		width: 730px;
 		margin: auto;
 	}
 
-	.myForm {
-		margin: 0px 42px 50px 42px;
+	.myForm,
+	.myFormEdit {
+		margin: 0px 42px 30px 42px;
 		height: 100px;
 	}
 
-	.myForm input {
+	.myForm input,
+	.myFormEdit input {
 		font-size: 20px;
 	}
 
-	.myForm button {
+	.myForm button,
+	.myFormEdit button {
 		margin: 15px 25px;
 	}
 
@@ -249,12 +302,14 @@ footer p {
 		margin: 15px 25px;
 	}
 
-	.circle {
+	.circle,
+	.circleEdit {
 		width: 40px;
 		height: 40px;
 	}
 
-	.circle p {
+	.circle p,
+	.circleEdit p {
 		font-size: 24px;
 	}
 
@@ -287,9 +342,42 @@ footer p {
 	footer p {
 		font-size: 18px;
 	}
+
+	.alertBox {
+		position: absolute;
+		top: -15%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
 
 /* Large tablet and desktop styles */
 @media screen and (min-width: 987px) {
-	
+}
+
+/* display block for edit form*/
+.myFormEdit {
+	display: none;
+}
+
+.submitBtnEdit {
+	background-color: var(--secondary);
+}
+
+.myFormEdit {
+	background-color: var(--secondary);
+}
+
+.myFormEdit input {
+	background-color: var(--secondary);
+}
+
+/* display none for edit form */
+.myFormEditDisplayBlock{
+	display: flex;
+}
+
+/* Display block for normal FORM */
+.myFormDisplayNone{
+	display: none;
 }
