@@ -2,18 +2,22 @@
 const myForm = document.querySelector('.myForm');
 const listContainer = document.querySelector('.container');
 const clearItems = document.querySelector('.clear');
+const itemsFooter = document.querySelector('.itemsFooter');
 
 // event listeners
 window.addEventListener('DOMContentLoaded', () => renderList());
 window.addEventListener('click', (e) => handleCircle(e));
 myForm.addEventListener('submit', (e) => handleSubmit(e));
-listContainer.addEventListener('click', (e) => UPDATE_OR_REMOVE_fromLocalStorage(e));
+listContainer.addEventListener('click', (e) =>
+	UPDATE_OR_REMOVE_fromLocalStorage(e)
+);
 clearItems.addEventListener('click', () => clearAllItems());
 
 // render list
 const renderList = () => {
 	const items = JSON.parse(localStorage.getItem('list'));
 	let list = '';
+	let itemQuantity = 0;
 
 	// iterate through the Local storage
 	for (let i = 0; i < items.length; i++) {
@@ -31,41 +35,37 @@ const renderList = () => {
 	    <p>${items[i].value}</p>
 	    </div>
 		<!-- End of single item-->`;
+
+		itemQuantity++;
 	}
 
 	// render list on the HTML
 	listContainer.innerHTML = list;
+
+	// render items quantity on the footer
+	itemsFooter.innerHTML = `${itemQuantity} items`;
 };
 
 // LOCAL STORAGE
 
 const UPDATE_OR_REMOVE_fromLocalStorage = (e) => {
-	// Get element id and class
+	// Get element id and classes
 	const id = e.target.parentElement.id;
 	const target = e.target.classList;
 
-	// Get the local Storage Items
+	// Get local Storage Items
 	let items = getLocalStorage();
 
 	// *****TARGET EVENT LISTENERS*****
 	// Remove item clicked
 	if (target.contains('fa-trash')) {
-		items = items.filter((item) => {
-			if (item.id != id) {
-				return item;
-			}
-		});
-
-		// Set new local Store
-		newLocalStore(items)
-		console.log('item deletado!');
+		removeFromLocalStorage(id, items);
 	}
 
 	// Update item clicked
 	if (target.contains('fa-pen-to-square')) {
 		console.log('item alterado!');
 	}
-
 };
 
 const addToLocalStorage = (id, value) => {
@@ -77,13 +77,17 @@ const addToLocalStorage = (id, value) => {
 	renderList();
 };
 
-const removeFromLocalStorage = (id, value) => {
+const removeFromLocalStorage = (id, list) => {
+	let newList = list.filter((item) => {
+		if (item.id != id) {
+			return item;
+		}
+	});
+	// Set new local Store
+	newLocalStore(newList);
+};
 
-}
-
-const updateFromLocalStorage = (id, value) => {
-
-}
+const updateFromLocalStorage = (id, value) => {};
 
 const getLocalStorage = () => {
 	// return the current list
@@ -112,18 +116,20 @@ const handleCircle = (e) => {
 	// Show circle check
 	if (target.contains('fa-square-check')) {
 		const id = e.target.parentElement.id;
-		const circle = document.getElementById(`${id}`).parentElement.previousElementSibling;
-		circle.classList.add('checkItemDisplay')
+		const circle = document.getElementById(`${id}`).parentElement
+			.previousElementSibling;
+		circle.classList.add('checkItemDisplay');
 	}
 
 	// Hide circle check
 	if (target.contains('fa-circle-check')) {
 		const id = e.target.nextElementSibling.childNodes[1].id;
-		const checkItem = document.getElementById(`${id}`).parentElement.previousElementSibling;
+		const checkItem = document.getElementById(`${id}`).parentElement
+			.previousElementSibling;
 		console.log(checkItem);
 		checkItem.classList.remove('checkItemDisplay');
 	}
-}
+};
 
 const clearAllItems = () => {
 	let items = [];
@@ -134,7 +140,7 @@ const clearAllItems = () => {
 const newLocalStore = (items) => {
 	localStorage.setItem('list', JSON.stringify(items));
 	renderList();
-}
+};
 
 const handleSubmit = (e) => {
 	e.preventDefault();

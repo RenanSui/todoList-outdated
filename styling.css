@@ -43,10 +43,12 @@ header {
 	margin: 25px;
 }
 
-header p {
+.todoTitle {
 	font-size: 20px;
 	font-weight: bold;
 	color: var(--white);
+	margin-left: 10px;
+	margin-bottom: 50px;
 }
 
 .img-banner {
@@ -92,12 +94,9 @@ header p {
 	background-color: var(--primary);
 	height: 57px;
 	margin: 10px;
-	border-radius: 4px;
+	border-radius: 8px;
 	display: flex;
 	margin-top: 140px;
-
-	/* put in the media query -> */
-	max-width: 940px;
 }
 
 .myForm button {
@@ -109,7 +108,7 @@ header p {
 	color: var(--text-color);
 	width: 100%;
 	border: none;
-	border-radius: 4px;
+	border-radius: 8px;
 }
 
 .myForm input[type='text']:focus {
@@ -140,7 +139,7 @@ header p {
 }
 
 .container-item:nth-child(1) {
-	border-radius: 4px 4px 0 0;
+	border-radius: 8px 8px 0 0;
 }
 
 .list-options {
@@ -160,22 +159,22 @@ header p {
 	cursor: pointer;
 }
 
-.list-options-display-block{
-	display: flex
+.list-options-display-block {
+	display: flex;
 }
 
 .fa-trash {
 	margin-right: 0;
 }
 
-.checkItem{
+.checkItem {
 	font-size: 30px;
 	position: absolute;
 	margin: 15px;
 	color: var(--primary);
 }
 
-.checkItemDisplay{
+.checkItemDisplay {
 	color: var(--text-color);
 	z-index: 1;
 }
@@ -187,7 +186,7 @@ footer {
 	margin: 0 10px;
 	justify-content: space-between;
 	padding: 15px;
-	border-radius: 0 0 4px 4px;
+	border-radius: 0 0 8px 8px;
 }
 
 footer p {
@@ -198,12 +197,99 @@ footer p {
 	cursor: pointer;
 }
 
-/* Mobile styles*/
-.todoList {
+/* Small Tablet styles*/
+@media screen and (min-width: 740px) {
+	.img-banner {
+		height: 456px;
+	}
+
+	header {
+		margin: 150px 100px 0 100px;
+	}
+
+	header p {
+		font-size: 60px;
+	}
+
+	.todoTitle {
+		font-size: 60px;
+		font-weight: bold;
+		color: var(--white);
+		margin-left: 42px;
+	}
+
+	.todoList{
+		width: 730px;
+		margin: auto;
+	}
+
+	.myForm {
+		margin: 0px 42px 50px 42px;
+		height: 100px;
+	}
+
+	.myForm input {
+		font-size: 20px;
+	}
+
+	.myForm button {
+		margin: 15px 25px;
+	}
+
+	.container-item {
+		margin: 0 42px;
+		height: 80px;
+	}
+
+	.container-item p {
+		font-size: 20px;
+	}
+
+	.container-item .circle {
+		margin: 15px 25px;
+	}
+
+	.circle {
+		width: 40px;
+		height: 40px;
+	}
+
+	.circle p {
+		font-size: 24px;
+	}
+
+	.list-options {
+		top: -75px;
+		left: -10px;
+	}
+
+	.list-options > * {
+		font-size: 46px;
+		margin-right: 30px;
+		cursor: pointer;
+	}
+
+	.checkItem {
+		font-size: 40px;
+		margin-left: 25px;
+	}
+
+	.fa-trash {
+		margin-right: 0;
+	}
+
+	footer {
+		margin: 0 42px;
+		margin-bottom: 42px;
+		padding: 34px;
+	}
+
+	footer p {
+		font-size: 18px;
+	}
 }
 
-.myForm {
-}
-
-.container {
+/* Large tablet and desktop styles */
+@media screen and (min-width: 987px) {
+	
 }
